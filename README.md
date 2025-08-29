@@ -1,4 +1,4 @@
-# 📊 Smart Contract Comparison Tool
+# Document Comparison Tool
 
 A Next.js application that extracts structured pricing data from hotel contract files and provides automated year-over-year price comparisons using AI-powered document analysis.
 
@@ -151,4 +151,4 @@ This is a standalone application with no database dependencies or authentication
 
 ---
 
-*Built with Next.js, TypeScript, and Google Gemini AI*
+Built with Next.js, TypeScript, and Google Gemini AI
