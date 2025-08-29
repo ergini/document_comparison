@@ -18,7 +18,7 @@ This tool simplifies the process of comparing hotel contract pricing data by aut
 
 ### Prerequisites
 
-- Node.js (version 20 or higher) - Download from [nodejs.org](https://nodejs.org)
+- Node.js (version 20 or higher)
 - Google AI Studio API key
 
 ### Installation
@@ -31,15 +31,15 @@ pnpm install
 
 2. **Configure API key**
 - Visit [Google AI Studio](https://aistudio.google.com/app/apikey) to create a free API key
-- Create a `.env.local` file in your project root
+- Create a `.env` file in your project root
 - Add your API key: `GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here`
 
-3. **Start the development server**
+1. **Start the development server**
 ```bash
 pnpm dev
 ```
 
-4. **Access the application**
+1. **Access the application**
 Open your browser and navigate to `http://localhost:3200`
 
 ## Usage
