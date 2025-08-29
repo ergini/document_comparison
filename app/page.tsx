@@ -20,12 +20,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { ComparisonMatch } from "@/lib/compare";
+import { ContractItem } from "@/lib/extract";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ContractItem } from "@/lib/extract";
-import { ComparisonMatch } from "@/lib/compare";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ACCEPTED_FILE_TYPES = [
@@ -33,15 +33,6 @@ const ACCEPTED_FILE_TYPES = [
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "application/vnd.ms-excel",
 ];
-
-// Function to truncate file names
-const truncateFileName = (fileName: string, maxLength: number = 30): string => {
-  if (fileName.length <= maxLength) return fileName;
-  const extension = fileName.split('.').pop();
-  const nameWithoutExt = fileName.substring(0, fileName.lastIndexOf('.'));
-  const truncatedName = nameWithoutExt.substring(0, maxLength - 3);
-  return `${truncatedName}...${extension ? `.${extension}` : ''}`;
-};
 
 const fileSchema = z.object({
   fileA: z
@@ -198,8 +189,8 @@ export default function Home() {
                     {...register("fileA")}
                   />
                   {fileA && (
-                    <p className="text-sm text-muted-foreground">
-                      Selected: {truncateFileName(fileA.name)}
+                    <p className="text-sm text-muted-foreground truncate">
+                      Selected: {fileA.name}
                     </p>
                   )}
                   {errors.fileA && (
@@ -218,8 +209,8 @@ export default function Home() {
                     {...register("fileB")}
                   />
                   {fileB && (
-                    <p className="text-sm text-muted-foreground">
-                      Selected: {truncateFileName(fileB.name)}
+                    <p className="text-sm text-muted-foreground truncate">
+                      Selected: {fileB.name}
                     </p>
                   )}
                   {errors.fileB && (
